@@ -2,6 +2,10 @@ use std::env;
 use std::io::{BufRead, BufReader};
 use std::time::{Duration, Instant};
 
+mod day1;
+
+use day1::Day1;
+
 /// Reads the lines from the input file into a relevant
 /// model of the data for the day's solution.
 trait FromInput {
@@ -30,7 +34,7 @@ fn load_input(day: usize) -> impl Iterator<Item = String> {
 /// Gets the solution for the given day as a trait object.
 fn get_day_solution(day: usize, lines: impl Iterator<Item = String>) -> Box<dyn DaySolution> {
     match day {
-        // 1 => Box::new(Day1::from_lines(lines)),
+        1 => Box::new(Day1::from_lines(lines)),
         _other => panic!("Day hasn't been solved yet"),
     }
 }
